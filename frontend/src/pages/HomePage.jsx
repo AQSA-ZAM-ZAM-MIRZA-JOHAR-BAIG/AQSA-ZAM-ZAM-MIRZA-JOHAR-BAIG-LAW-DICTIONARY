@@ -191,16 +191,25 @@ export default function HomePage() {
               <strong>Aqsa Zam Zam Mirza Johar Baig</strong> formally known online as <strong>Aqsa Mirza</strong>, is a dedicated BA LLB student at Dr. Panjabrao Deshmukh College of Law, Amravati, and the visionary behind LexiLaw. Achieving an impressive <strong>CLAT 2022 AIR 42</strong>, she combines her profound academic understanding of the law with modern web development skills to make legal knowledge accessible. As a passionate <strong>Legal Researcher</strong> and technologist, Aqsa actively bridges the gap between complex jurisprudence and plain-English comprehension, providing invaluable resources for students, professionals, and the public alike.
             </p>
 
-            <div style={{ marginTop: '12px' }}>
-              <a 
-                href="https://aqsa-zam-zam-mirza-johar-baig-portf.vercel.app" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-outline"
-                style={{ fontSize: '0.9rem' }}
-              >
-                View Online Profiles & Portfolio →
-              </a>
+            <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <h5 style={{ color: 'var(--text-primary)', fontSize: '1.05rem', fontWeight: 600, margin: 0 }}>
+                Explore More by Aqsa Mirza
+              </h5>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                <a href="https://aqsa-zam-zam-mirza-johar-baig-portf.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Portfolio →</a>
+                <a href="https://www.linkedin.com/in/aqsa-zam-zam-mirza-johar-baig-28501b3b6/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>LinkedIn →</a>
+                <a href="https://github.com/AQSA-ZAM-ZAM-MIRZA-JOHAR-BAIG" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>GitHub →</a>
+                <a href="https://aqsa-zam-zam-mirza-johar-baig-law-d.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Law Dictionary →</a>
+                <a href="https://aqsa-zam-zam-mirza-johar-baig-const.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Constitutional Law →</a>
+                <a href="https://aqsa-zam-zam-mirza-johar-baig-urdu.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Urdu Shayari →</a>
+                <a href="https://aqsa-zam-zam-mirza-johar-baig-blogs.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Blogs (Vercel) →</a>
+                <a href="https://aqsa-zam-zam-mirza-johar-baig-blogs.onrender.com/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Blogs (Render) →</a>
+                <a href="https://aqsamirza08.medium.com/" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Medium Blog →</a>
+                <a href="https://www.kaggle.com/aqsamirza08" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Kaggle →</a>
+                <a href="https://stackoverflow.com/users/32468898/aqsa-zam-zam-mirza-johar-baig" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>Stack Overflow →</a>
+                <a href="https://www.youtube.com/@aqsamirza08" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>YouTube (@aqsamirza08) →</a>
+                <a href="https://www.youtube.com/channel/UCtn3SjtE26v2pzdLeRPwJbQ" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ fontSize: '0.78rem', padding: '6px 12px' }}>YouTube Channel →</a>
+              </div>
             </div>
           </div>
         </div>

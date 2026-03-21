@@ -20,7 +20,11 @@ export default function Footer() {
           </nav>
         </div>
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} LexiLaw Dictionary. For educational purposes only — not legal advice.</p>
+          <p>
+            © {new Date().getFullYear()} LexiLaw Dictionary | Created by <strong>Aqsa Zam Zam Mirza Johar Baig (Aqsa Mirza)</strong>. 
+            <br />
+            For educational purposes only — not legal advice.
+          </p>
         </div>
       </div>
     </footer>

@@ -32,10 +32,12 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>LexiLaw – Legal Dictionary | Plain-English Definitions of Legal Terms</title>
-        <meta name="description" content="LexiLaw is a comprehensive legal dictionary with plain-English definitions, examples, and A–Z browsing of hundreds of legal terms. Free and fast." />
-        <meta property="og:title" content="LexiLaw – Legal Dictionary" />
-        <meta property="og:description" content="Browse hundreds of legal terms explained in plain English. Free legal dictionary with search and bookmarks." />
+        <title>LexiLaw – Legal Dictionary | By Aqsa Zam Zam Mirza Johar Baig</title>
+        <meta name="description" content="LexiLaw by Aqsa Mirza (CLAT AIR 42) is a comprehensive legal dictionary with plain-English definitions, examples, and A–Z browsing of hundreds of legal terms." />
+        <meta name="keywords" content="Law Dictionary, Legal Terms, Aqsa Zam Zam Mirza Johar Baig, Aqsa Mirza, BA LLB, CLAT AIR 42, Legal Researcher" />
+        <meta name="author" content="Aqsa Zam Zam Mirza Johar Baig" />
+        <meta property="og:title" content="LexiLaw – Legal Dictionary by Aqsa Mirza" />
+        <meta property="og:description" content="Browse hundreds of legal terms explained in plain English by Aqsa Zam Zam Mirza Johar Baig. Free legal dictionary with search and bookmarks." />
         <link rel="canonical" href="/" />
       </Helmet>
 
@@ -143,6 +145,64 @@ export default function HomePage() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* About the Creator - SEO Optimized Section */}
+      <section className="section" style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)' }}>
+        <div className="container">
+          <div className="section__header" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '8px' }}>
+            <h2 className="section__title">About the Creator</h2>
+            <div className="section__divider" style={{ margin: 0, width: '60px' }} />
+          </div>
+          <div style={{
+            background: 'var(--bg-card)',
+            border: '1px solid var(--gold-border)',
+            borderRadius: 'var(--radius-md)',
+            padding: '32px',
+            marginTop: '24px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: 0, left: 0, right: 0, height: '4px',
+              background: 'linear-gradient(90deg, var(--gold-primary), var(--gold-light))'
+            }} />
+            
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--gold-primary)', margin: 0 }}>
+              Aqsa Zam Zam Mirza Johar Baig
+            </h3>
+            
+            <h4 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', fontWeight: 600, margin: 0 }}>
+              Aqsa Mirza | BA LLB | CLAT AIR 42 | Legal Researcher
+            </h4>
+            
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '8px 0' }}>
+              <span className="badge">Legal Scholar</span>
+              <span className="badge">Web Developer</span>
+              <span className="badge">CLAT AIR 42 (2022)</span>
+            </div>
+            
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.95rem' }}>
+              <strong>Aqsa Zam Zam Mirza Johar Baig</strong> formally known online as <strong>Aqsa Mirza</strong>, is a dedicated BA LLB student at Dr. Panjabrao Deshmukh College of Law, Amravati, and the visionary behind LexiLaw. Achieving an impressive <strong>CLAT 2022 AIR 42</strong>, she combines her profound academic understanding of the law with modern web development skills to make legal knowledge accessible. As a passionate <strong>Legal Researcher</strong> and technologist, Aqsa actively bridges the gap between complex jurisprudence and plain-English comprehension, providing invaluable resources for students, professionals, and the public alike.
+            </p>
+
+            <div style={{ marginTop: '12px' }}>
+              <a 
+                href="https://aqsa-zam-zam-mirza-johar-baig-portf.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+                style={{ fontSize: '0.9rem' }}
+              >
+                View Online Profiles & Portfolio →
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -9,18 +9,33 @@ export default function TermDetailPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { isBookmarked, toggleBookmark } = useBookmarks();
-  const [term, setTerm] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [termsBySlug, setTermsBySlug] = useState({});
+  const [errorBySlug, setErrorBySlug] = useState({});
 
   useEffect(() => {
-    setLoading(true);
-    setError(false);
+    if (!slug || termsBySlug[slug] !== undefined || errorBySlug[slug]) return;
+
+    let cancelled = false;
     getTermBySlug(slug)
-      .then(({ data }) => setTerm(data.term))
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, [slug]);
+      .then(({ data }) => {
+        if (!cancelled) {
+          setTermsBySlug((prev) => ({ ...prev, [slug]: data.term || null }));
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setErrorBySlug((prev) => ({ ...prev, [slug]: true }));
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [errorBySlug, slug, termsBySlug]);
+
+  const term = slug ? (termsBySlug[slug] ?? null) : null;
+  const loading = Boolean(slug) && termsBySlug[slug] === undefined && !errorBySlug[slug];
+  const error = Boolean(errorBySlug[slug]);
 
   if (loading) return <div className="spinner" style={{ marginTop: 80 }} />;
 

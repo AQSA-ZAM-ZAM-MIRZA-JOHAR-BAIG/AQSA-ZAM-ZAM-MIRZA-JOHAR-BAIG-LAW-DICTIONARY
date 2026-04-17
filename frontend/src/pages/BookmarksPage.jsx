@@ -8,20 +8,32 @@ import TermCard from '../components/TermCard';
 export default function BookmarksPage() {
   const navigate = useNavigate();
   const { bookmarks, removeBookmark } = useBookmarks();
-  const [terms, setTerms] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const bookmarksKey = [...bookmarks].sort().join(',');
+  const [resultsByBookmarks, setResultsByBookmarks] = useState({});
 
   useEffect(() => {
-    if (bookmarks.length === 0) {
-      setTerms([]);
-      return;
-    }
-    setLoading(true);
+    if (bookmarks.length === 0 || resultsByBookmarks[bookmarksKey] !== undefined) return;
+
+    let cancelled = false;
     getBookmarks(bookmarks)
-      .then(({ data }) => setTerms(data.terms || []))
-      .catch(() => setTerms([]))
-      .finally(() => setLoading(false));
-  }, [bookmarks]);
+      .then(({ data }) => {
+        if (!cancelled) {
+          setResultsByBookmarks((prev) => ({ ...prev, [bookmarksKey]: data.terms || [] }));
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setResultsByBookmarks((prev) => ({ ...prev, [bookmarksKey]: [] }));
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [bookmarks, bookmarksKey, resultsByBookmarks]);
+
+  const terms = bookmarks.length === 0 ? [] : (resultsByBookmarks[bookmarksKey] ?? []);
+  const loading = bookmarks.length > 0 && resultsByBookmarks[bookmarksKey] === undefined;
 
   return (
     <>

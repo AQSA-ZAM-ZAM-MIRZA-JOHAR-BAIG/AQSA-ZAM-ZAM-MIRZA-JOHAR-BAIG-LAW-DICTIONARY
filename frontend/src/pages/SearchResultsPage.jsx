@@ -8,17 +8,32 @@ export default function SearchResultsPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const q = searchParams.get('q') || '';
-  const [terms, setTerms] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const normalizedQuery = q.trim().toLowerCase();
+  const [resultsByQuery, setResultsByQuery] = useState({});
 
   useEffect(() => {
-    if (!q.trim()) return;
-    setLoading(true);
+    if (!normalizedQuery || resultsByQuery[normalizedQuery] !== undefined) return;
+
+    let cancelled = false;
     searchTerms(q)
-      .then(({ data }) => setTerms(data.terms || []))
-      .catch(() => setTerms([]))
-      .finally(() => setLoading(false));
-  }, [q]);
+      .then(({ data }) => {
+        if (!cancelled) {
+          setResultsByQuery((prev) => ({ ...prev, [normalizedQuery]: data.terms || [] }));
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setResultsByQuery((prev) => ({ ...prev, [normalizedQuery]: [] }));
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [normalizedQuery, q, resultsByQuery]);
+
+  const terms = normalizedQuery ? (resultsByQuery[normalizedQuery] ?? []) : [];
+  const loading = Boolean(normalizedQuery) && resultsByQuery[normalizedQuery] === undefined;
 
   return (
     <>

@@ -38,7 +38,7 @@ export default function HomePage() {
         <meta name="author" content="Aqsa Zam Zam Mirza Johar Baig" />
         <meta property="og:title" content="LexiLaw – Legal Dictionary by Aqsa Mirza" />
         <meta property="og:description" content="Browse hundreds of legal terms explained in plain English by Aqsa Zam Zam Mirza Johar Baig. Free legal dictionary with search and bookmarks." />
-        <link rel="canonical" href="/" />
+        <link rel="canonical" href="https://aqsa-zam-zam-mirza-johar-baig-law-d.vercel.app/" />
       </Helmet>
 
       {/* Hero */}

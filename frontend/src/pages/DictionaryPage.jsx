@@ -74,7 +74,7 @@ export default function DictionaryPage() {
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={`Browse legal terms ${mode === 'letter' ? `starting with ${activeLetter}` : 'from A to Z'} — clear definitions and real-world examples on LexiLaw.`} />
-        <link rel="canonical" href={`/dictionary${mode === 'letter' ? `/${activeLetter}` : ''}`} />
+        <link rel="canonical" href={`https://aqsa-zam-zam-mirza-johar-baig-law-d.vercel.app/dictionary${mode === 'letter' ? `/${activeLetter}` : ''}`} />
       </Helmet>
 
       <section style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border)', padding: '40px 0 0' }}>

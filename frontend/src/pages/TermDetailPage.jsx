@@ -59,7 +59,7 @@ export default function TermDetailPage() {
         <meta name="description" content={`${term.term}: ${term.definition.slice(0, 155)}…`} />
         <meta property="og:title" content={`${term.term} – Legal Definition`} />
         <meta property="og:description" content={term.definition.slice(0, 200)} />
-        <link rel="canonical" href={`/terms/${term.slug}`} />
+        <link rel="canonical" href={`https://aqsa-zam-zam-mirza-johar-baig-law-d.vercel.app/terms/${term.slug}`} />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'DefinedTerm',

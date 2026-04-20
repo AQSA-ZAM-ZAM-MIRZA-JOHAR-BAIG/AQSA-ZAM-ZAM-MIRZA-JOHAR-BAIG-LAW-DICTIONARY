@@ -13,9 +13,9 @@ export default function TermDetailPage() {
   const [errorBySlug, setErrorBySlug] = useState({});
 
   useEffect(() => {
-    // Redirect if slug ends with -, ., or %20
-    if (slug && /[-.\s%20]+$/.test(slug)) {
-      const cleanSlug = slug.replace(/[-.\s%20]+$/, '');
+    // Redirect if slug ends with -, ., \, or %20
+    if (slug && /[-.\s%20\\]+$/.test(slug)) {
+      const cleanSlug = slug.replace(/[-.\s%20\\]+$/, '');
       navigate(`/terms/${cleanSlug}`, { replace: true });
       return;
     }

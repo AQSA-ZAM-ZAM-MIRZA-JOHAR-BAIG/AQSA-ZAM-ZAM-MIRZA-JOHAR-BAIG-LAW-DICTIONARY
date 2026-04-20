@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/terms/(.*)[\\-\\.]+",
+      "source": "/terms/(.*)[\\-\\.\\\\]+",
       "destination": "/terms/$1",
       "permanent": true
     },

@@ -1,4 +1,27 @@
 {
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/terms/(.*)[\\-\\.]+",
+      "destination": "/terms/$1",
+      "permanent": true
+    },
+    {
+      "source": "/terms/(.*)%20",
+      "destination": "/terms/$1",
+      "permanent": true
+    },
+    {
+      "source": "/terms/dictionary(.*)",
+      "destination": "/dictionary",
+      "permanent": true
+    },
+    {
+      "source": "/terms/bookmarks(.*)",
+      "destination": "/bookmarks",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

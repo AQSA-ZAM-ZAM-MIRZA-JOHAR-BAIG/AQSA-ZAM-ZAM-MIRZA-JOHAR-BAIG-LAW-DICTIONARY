@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import BookmarkButton from './BookmarkButton';
 import { useBookmarks } from '../hooks/useBookmarks';
 
@@ -8,13 +8,10 @@ export default function TermCard({ term, style }) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
 
   return (
-    <article
+    <Link
+      to={`/terms/${term.slug}`}
       className="term-card fade-up"
-      style={style}
-      onClick={() => navigate(`/terms/${term.slug}`)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && navigate(`/terms/${term.slug}`)}
+      style={{ ...style, display: 'block', textDecoration: 'none', color: 'inherit' }}
       aria-label={`View definition of ${term.term}`}
     >
       <div className="term-card__header">
@@ -27,6 +24,6 @@ export default function TermCard({ term, style }) {
       </div>
       <span className="badge">{term.category}</span>
       <p className="term-card__definition">{term.definition}</p>
-    </article>
+    </Link>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import BookmarkButton from './BookmarkButton';
 import { useBookmarks } from '../hooks/useBookmarks';
 
@@ -68,12 +68,13 @@ export default function TermModal({ term, onClose }) {
             isBookmarked={isBookmarked(term._id)}
             onToggle={toggleBookmark}
           />
-          <button
+          <Link
             className="btn btn-outline"
-            onClick={() => navigate(`/terms/${term.slug}`)}
+            to={`/terms/${term.slug}`}
+            style={{ display: 'inline-block' }}
           >
             Full Page →
-          </button>
+          </Link>
         </div>
       </div>
     </div>

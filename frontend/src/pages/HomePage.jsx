@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { getTerms } from '../api/termsApi';
 import AlphabetNav from '../components/AlphabetNav';
 import TermCard from '../components/TermCard';
@@ -133,7 +133,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section__header">
             <h2 className="section__title">Featured Terms</h2>
-            <button className="btn btn-outline" onClick={() => navigate('/dictionary')}>Browse All →</button>
+            <Link className="btn btn-outline" to="/dictionary" style={{ display: 'inline-block' }}>Browse All →</Link>
           </div>
           <div className="section__divider" />
           {loading ? (

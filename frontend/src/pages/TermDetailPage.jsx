@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getTermBySlug } from '../api/termsApi';
 import BookmarkButton from '../components/BookmarkButton';
 import { useBookmarks } from '../hooks/useBookmarks';
@@ -52,9 +52,9 @@ export default function TermDetailPage() {
         <span className="empty-state__icon">⚖️</span>
         <p className="empty-state__title">Term not found</p>
         <p className="empty-state__sub">The legal term you're looking for doesn't exist.</p>
-        <button className="btn btn-gold" style={{ marginTop: 16 }} onClick={() => navigate('/dictionary')}>
+        <Link className="btn btn-gold" style={{ marginTop: 16, display: 'inline-block' }} to="/dictionary">
           Browse Dictionary
-        </button>
+        </Link>
       </div>
     );
   }
@@ -136,12 +136,12 @@ export default function TermDetailPage() {
             )}
 
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: 24, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <button className="btn btn-gold" onClick={() => navigate(`/dictionary/${term.letter}`)}>
+              <Link className="btn btn-gold" to={`/dictionary/${term.letter}`} style={{ display: 'inline-block' }}>
                 More {term.letter} Terms
-              </button>
-              <button className="btn btn-outline" onClick={() => navigate('/dictionary')}>
+              </Link>
+              <Link className="btn btn-outline" to="/dictionary" style={{ display: 'inline-block' }}>
                 Browse All Terms
-              </button>
+              </Link>
             </div>
           </div>
         </div>

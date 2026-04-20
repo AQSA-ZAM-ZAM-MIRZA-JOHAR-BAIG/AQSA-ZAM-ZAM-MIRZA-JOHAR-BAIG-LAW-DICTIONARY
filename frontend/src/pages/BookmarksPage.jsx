@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { getBookmarks } from '../api/termsApi';
 import { useBookmarks } from '../hooks/useBookmarks';
 import TermCard from '../components/TermCard';
@@ -63,13 +63,13 @@ export default function BookmarksPage() {
               <span className="empty-state__icon">📄</span>
               <p className="empty-state__title">No bookmarks yet</p>
               <p className="empty-state__sub">Click the bookmark icon on any term to save it here.</p>
-              <button
+              <Link
                 className="btn btn-gold"
-                style={{ marginTop: 20 }}
-                onClick={() => navigate('/dictionary')}
+                style={{ marginTop: 20, display: 'inline-block' }}
+                to="/dictionary"
               >
                 Browse Dictionary
-              </button>
+              </Link>
             </div>
           ) : (
             <>

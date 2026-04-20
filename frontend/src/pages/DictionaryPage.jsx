@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getTermsByLetter, getTerms } from '../api/termsApi';
 import AlphabetNav from '../components/AlphabetNav';
 import TermCard from '../components/TermCard';
@@ -89,12 +89,13 @@ export default function DictionaryPage() {
               </p>
             </div>
             {mode === 'letter' && (
-              <button
+              <Link
                 className="btn btn-outline"
-                onClick={() => navigate('/dictionary')}
+                to="/dictionary"
+                style={{ display: 'inline-block' }}
               >
                 View All
-              </button>
+              </Link>
             )}
           </div>
           <AlphabetNav active={activeLetter} onSelect={handleLetterSelect} />

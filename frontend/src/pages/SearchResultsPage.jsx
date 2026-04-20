@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { searchTerms } from '../api/termsApi';
 import TermCard from '../components/TermCard';
 
@@ -66,13 +66,13 @@ export default function SearchResultsPage() {
               <span className="empty-state__icon">🔍</span>
               <p className="empty-state__title">No results for "{q}"</p>
               <p className="empty-state__sub">Try a different search term or browse the full dictionary.</p>
-              <button
+              <Link
                 className="btn btn-gold"
-                style={{ marginTop: 20 }}
-                onClick={() => navigate('/dictionary')}
+                style={{ marginTop: 20, display: 'inline-block' }}
+                to="/dictionary"
               >
                 Browse Dictionary
-              </button>
+              </Link>
             </div>
           ) : (
             <div className="term-grid">

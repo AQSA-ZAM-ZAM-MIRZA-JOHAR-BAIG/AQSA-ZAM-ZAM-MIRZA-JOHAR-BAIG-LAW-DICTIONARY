@@ -49,8 +49,12 @@ export default function TermDetailPage() {
   if (error || !term) {
     return (
       <div className="empty-state section">
+        <Helmet>
+          <title>Term Not Found | LexiLaw Dictionary</title>
+          <meta name="robots" content="noindex" />
+        </Helmet>
         <span className="empty-state__icon">⚖️</span>
-        <p className="empty-state__title">Term not found</p>
+        <h1 className="empty-state__title">Term not found</h1>
         <p className="empty-state__sub">The legal term you're looking for doesn't exist.</p>
         <Link className="btn btn-gold" style={{ marginTop: 16, display: 'inline-block' }} to="/dictionary">
           Browse Dictionary

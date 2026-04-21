@@ -66,7 +66,7 @@ export default function TermDetailPage() {
   }
 
   const metaTitle = `${term.term} – Legal Definition | LexiLaw Dictionary`;
-  const metaDesc = `${term.term}: ${term.definition.slice(0, 150)}... Browse full plain-English definition, examples, and related legal terms on LexiLaw.`;
+  const metaDesc = `${term.term}: ${term?.definition?.slice(0, 150) || ''}... Browse full plain-English definition, examples, and related legal terms on LexiLaw.`;
   const canonicalUrl = `${BASE_URL}/terms/${term.slug}`;
 
   return (
@@ -80,7 +80,7 @@ export default function TermDetailPage() {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:title" content={metaTitle} />
-        <meta property="og:description" content={term.definition.slice(0, 200)} />
+        <meta property="og:description" content={term?.definition?.slice(0, 200) || ''} />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -90,7 +90,7 @@ export default function TermDetailPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@aqsamirza08" />
         <meta name="twitter:title" content={metaTitle} />
-        <meta name="twitter:description" content={term.definition.slice(0, 200)} />
+        <meta name="twitter:description" content={term?.definition?.slice(0, 200) || ''} />
         <meta name="twitter:image" content={OG_IMAGE} />
 
         <script type="application/ld+json">{JSON.stringify({

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getBookmarks } from '../api/termsApi';
 import { useBookmarks } from '../hooks/useBookmarks';
 import TermCard from '../components/TermCard';
 
+const BASE_URL = 'https://aqsa-zam-zam-mirza-johar-baig-law-d.vercel.app';
+const OG_IMAGE = `${BASE_URL}/og-image.png`;
+
 export default function BookmarksPage() {
-  const navigate = useNavigate();
   const { bookmarks, removeBookmark } = useBookmarks();
   const bookmarksKey = [...bookmarks].sort().join(',');
   const [resultsByBookmarks, setResultsByBookmarks] = useState({});
@@ -35,12 +37,35 @@ export default function BookmarksPage() {
   const terms = bookmarks.length === 0 ? [] : (resultsByBookmarks[bookmarksKey] ?? []);
   const loading = bookmarks.length > 0 && resultsByBookmarks[bookmarksKey] === undefined;
 
+  const pageTitle = 'My Bookmarks – LexiLaw Legal Dictionary';
+  const metaDesc = 'Your saved legal terms on LexiLaw. Quick access to bookmarked legal definitions. LexiLaw provides plain-English definitions for complex legal terminology.';
+  const canonicalUrl = `${BASE_URL}/bookmarks`;
+
   return (
     <>
       <Helmet>
-        <title>My Bookmarks – LexiLaw Legal Dictionary</title>
-        <meta name="description" content="Your saved legal terms on LexiLaw. Quick access to bookmarked legal definitions." />
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+        {/* Bookmarks are user-specific, generally noindex */}
         <meta name="robots" content="noindex" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="LexiLaw Legal Dictionary" />
+
+        {/* X (Twitter) Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@aqsamirza08" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={metaDesc} />
+        <meta name="twitter:image" content={OG_IMAGE} />
       </Helmet>
 
       <section style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border)', padding: '48px 0' }}>
@@ -49,7 +74,7 @@ export default function BookmarksPage() {
             🔖 My Bookmarks
           </h1>
           <p style={{ color: 'var(--text-muted)' }}>
-            {bookmarks.length} saved term{bookmarks.length !== 1 ? 's' : ''} — stored in your browser
+            {bookmarks.length} saved term{bookmarks.length !== 1 ? 's' : ''} — stored locally in your browser. LexiLaw is your free legal reference.
           </p>
         </div>
       </section>
@@ -61,8 +86,8 @@ export default function BookmarksPage() {
           ) : terms.length === 0 ? (
             <div className="empty-state">
               <span className="empty-state__icon">📄</span>
-              <p className="empty-state__title">No bookmarks yet</p>
-              <p className="empty-state__sub">Click the bookmark icon on any term to save it here.</p>
+              <h2 className="empty-state__title">No bookmarks yet</h2>
+              <p className="empty-state__sub">Click the bookmark icon on any term to save it here for quick reference.</p>
               <Link
                 className="btn btn-gold"
                 style={{ marginTop: 20, display: 'inline-block' }}

@@ -229,6 +229,8 @@ ul, ol { list-style: none; }
   cursor: pointer;
   transition: var(--transition);
   border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
 }
 .search-dropdown-item:last-child { border-bottom: none; }
 .search-dropdown-item:hover { background: var(--bg-card-hover); }
@@ -259,7 +261,7 @@ ul, ol { list-style: none; }
   border: 1px solid var(--border);
   transition: var(--transition);
 }
-.az-nav__btn:hover:not(:disabled) {
+.az-nav__btn:hover:not(.disabled) {
   color: var(--gold-primary);
   border-color: var(--gold-border);
   background: var(--gold-dim);
@@ -270,7 +272,8 @@ ul, ol { list-style: none; }
   border-color: transparent;
   animation: glow 2s infinite;
 }
-.az-nav__btn:disabled { opacity: 0.35; cursor: not-allowed; }
+/* disabled class used instead of :disabled since element is now <a> not <button> */
+.az-nav__btn.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 
 /* ─── Term Card ──────────────────────────────────────────── */
 .term-grid {

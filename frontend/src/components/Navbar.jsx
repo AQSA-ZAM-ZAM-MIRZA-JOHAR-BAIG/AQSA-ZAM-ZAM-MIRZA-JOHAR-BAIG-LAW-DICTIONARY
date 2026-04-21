@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useSearch } from '../hooks/useSearch';
 
 export default function Navbar() {
@@ -16,12 +16,6 @@ export default function Navbar() {
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
   }, []);
-
-  const handleSelect = (term) => {
-    setQuery('');
-    setOpen(false);
-    navigate(`/terms/${term.slug}`);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,15 +71,16 @@ export default function Navbar() {
                   <div className="search-dropdown-empty">No terms found for "{query}"</div>
                 )}
                 {!loading && results.map((t) => (
-                  <div
+                  <Link
                     key={t._id}
+                    to={`/terms/${t.slug}`}
                     className="search-dropdown-item"
-                    onClick={() => handleSelect(t)}
+                    onClick={() => { setQuery(''); setOpen(false); }}
                     role="option"
                   >
                     <span className="search-dropdown-item__term">{t.term}</span>
                     <span className="search-dropdown-item__cat badge">{t.category}</span>
-                  </div>
+                  </Link>
                 ))}
               </div>
             )}

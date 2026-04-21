@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getTermBySlug } from '../api/termsApi';
 import BookmarkButton from '../components/BookmarkButton';
 import { useBookmarks } from '../hooks/useBookmarks';
 
+const BASE_URL = 'https://aqsa-zam-zam-mirza-johar-baig-law-d.vercel.app';
+const OG_IMAGE = `${BASE_URL}/og-image.png`;
+
 export default function TermDetailPage() {
   const { slug } = useParams();
-  const navigate = useNavigate();
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const [termsBySlug, setTermsBySlug] = useState({});
   const [errorBySlug, setErrorBySlug] = useState({});
@@ -16,7 +18,7 @@ export default function TermDetailPage() {
     // Redirect if slug ends with -, ., \, or %20
     if (slug && /[-.\s%20\\]+$/.test(slug)) {
       const cleanSlug = slug.replace(/[-.\s%20\\]+$/, '');
-      navigate(`/terms/${cleanSlug}`, { replace: true });
+      window.location.replace(`/terms/${cleanSlug}`);
       return;
     }
 
@@ -63,14 +65,34 @@ export default function TermDetailPage() {
     );
   }
 
+  const metaTitle = `${term.term} – Legal Definition | LexiLaw Dictionary`;
+  const metaDesc = `${term.term}: ${term.definition.slice(0, 150)}... Browse full plain-English definition, examples, and related legal terms on LexiLaw.`;
+  const canonicalUrl = `${BASE_URL}/terms/${term.slug}`;
+
   return (
     <>
       <Helmet>
-        <title>{term.term} – Legal Definition | LexiLaw Dictionary</title>
-        <meta name="description" content={`${term.term}: ${term.definition.slice(0, 155)}…`} />
-        <meta property="og:title" content={`${term.term} – Legal Definition`} />
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={term.definition.slice(0, 200)} />
-        <link rel="canonical" href={`https://aqsa-zam-zam-mirza-johar-baig-law-d.vercel.app/terms/${term.slug}`} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="LexiLaw Legal Dictionary" />
+
+        {/* X (Twitter) Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@aqsamirza08" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={term.definition.slice(0, 200)} />
+        <meta name="twitter:image" content={OG_IMAGE} />
+
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'DefinedTerm',
@@ -82,13 +104,13 @@ export default function TermDetailPage() {
 
       <section style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border)', padding: '48px 0' }}>
         <div className="container">
-          <button
+          <Link
             className="btn btn-outline"
-            style={{ marginBottom: 20, fontSize: '0.8rem', padding: '6px 14px' }}
-            onClick={() => navigate(-1)}
+            style={{ marginBottom: 20, fontSize: '0.8rem', padding: '6px 14px', display: 'inline-flex' }}
+            to={`/dictionary/${term?.letter || ''}`}
           >
-            ← Back
-          </button>
+            ← Back to {term?.letter || 'Dictionary'}
+          </Link>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16 }}>
             <div>
               <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: 'var(--gold-primary)', marginBottom: 12, lineHeight: 1.2 }}>
@@ -133,11 +155,26 @@ export default function TermDetailPage() {
                 <p className="modal__section-label">Related Terms</p>
                 <div className="modal__related">
                   {term.relatedTerms.map((t) => (
-                    <span key={t} className="badge" style={{ cursor: 'default' }}>{t}</span>
+                    <Link
+                      key={t}
+                      to={`/terms/${t.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="badge"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {t}
+                    </Link>
                   ))}
                 </div>
               </div>
             )}
+
+            {/* About LexiLaw context (SEO Word Count) */}
+            <div style={{ marginTop: 24, padding: 20, background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
+               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', color: 'var(--gold-primary)', margin: '0 0 8px 0' }}>About This Definition</h2>
+               <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                 This plain-English legal definition of <strong>{term.term}</strong> was written by Aqsa Zam Zam Mirza Johar Baig (CLAT AIR 42). LexiLaw is a free legal dictionary designed to help students, professionals, and the public understand complex legal terminology. Browse the dictionary for more terms related to <strong>{term.category}</strong>.
+               </p>
+            </div>
 
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: 24, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <Link className="btn btn-gold" to={`/dictionary/${term.letter}`} style={{ display: 'inline-block' }}>

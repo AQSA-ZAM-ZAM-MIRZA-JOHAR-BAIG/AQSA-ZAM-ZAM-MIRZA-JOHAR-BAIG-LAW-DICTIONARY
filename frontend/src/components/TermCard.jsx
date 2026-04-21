@@ -4,7 +4,6 @@ import BookmarkButton from './BookmarkButton';
 import { useBookmarks } from '../hooks/useBookmarks';
 
 export default function TermCard({ term, style }) {
-  const navigate = useNavigate();
   const { isBookmarked, toggleBookmark } = useBookmarks();
 
   return (

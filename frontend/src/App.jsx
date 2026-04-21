@@ -8,6 +8,7 @@ import DictionaryPage from './pages/DictionaryPage';
 import TermDetailPage from './pages/TermDetailPage';
 import BookmarksPage from './pages/BookmarksPage';
 import SearchResultsPage from './pages/SearchResultsPage';
+import NotFoundPage from './pages/NotFoundPage';
 import './index.css';
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/terms/:slug" element={<TermDetailPage />} />
               <Route path="/bookmarks" element={<BookmarksPage />} />
               <Route path="/search" element={<SearchResultsPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
           <Footer />

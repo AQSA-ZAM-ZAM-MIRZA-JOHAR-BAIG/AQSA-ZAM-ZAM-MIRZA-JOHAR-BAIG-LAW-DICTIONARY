@@ -220,13 +220,31 @@ export default function HomePage() {
               background: 'linear-gradient(90deg, var(--gold-primary), var(--gold-light))'
             }} />
 
-            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--gold-primary)', margin: 0 }}>
-              Aqsa Zam Zam Mirza Johar Baig
-            </h3>
-
-            <h4 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', fontWeight: 600, margin: 0 }}>
-              Aqsa Mirza | BA LLB | CLAT AIR 42 | Legal Researcher
-            </h4>
+            <div style={{ display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <div style={{
+                width: '100px',
+                height: '100px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '3px solid var(--gold-primary)',
+                boxShadow: '0 8px 24px rgba(212, 163, 89, 0.25)',
+                flexShrink: 0
+              }}>
+                <img
+                  src="/profile.png"
+                  alt="Aqsa Zam Zam Mirza Johar Baig"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--gold-primary)', margin: 0 }}>
+                  Aqsa Zam Zam Mirza Johar Baig
+                </h3>
+                <h4 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', fontWeight: 600, margin: 0 }}>
+                  Aqsa Mirza | BA LLB | CLAT AIR 42 | Legal Researcher
+                </h4>
+              </div>
+            </div>
 
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '8px 0' }}>
               <span className="badge">Legal Scholar</span>

@@ -208,7 +208,7 @@ export default function DictionaryPage() {
               About LexiLaw Legal Dictionary
             </h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.8 }}>
-              LexiLaw is a free, comprehensive legal dictionary created by <strong>Aqsa Zam Zam Mirza Johar Baig</strong> (CLAT AIR 42),
+              LexiLaw is a free, comprehensive legal dictionary created by <strong>Aqsa Zam Zam Mirza Johar Baig</strong>,
               a BA LLB student at Dr. Panjabrao Deshmukh College of Law, Amravati. This dictionary covers hundreds of legal terms
               spanning criminal law, civil law, constitutional law, contract law, tort law, property law, evidence law, and more.
               Each term includes a plain-English definition and a real-world example to help students, legal professionals, and

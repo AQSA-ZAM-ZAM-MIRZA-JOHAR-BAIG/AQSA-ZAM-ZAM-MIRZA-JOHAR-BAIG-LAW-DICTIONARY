@@ -172,7 +172,7 @@ export default function TermDetailPage() {
             <div style={{ marginTop: 24, padding: 20, background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', color: 'var(--gold-primary)', margin: '0 0 8px 0' }}>About This Definition</h2>
                <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                 This plain-English legal definition of <strong>{term.term}</strong> was written by Aqsa Zam Zam Mirza Johar Baig (CLAT AIR 42). LexiLaw is a free legal dictionary designed to help students, professionals, and the public understand complex legal terminology. Browse the dictionary for more terms related to <strong>{term.category}</strong>.
+                 This plain-English legal definition of <strong>{term.term}</strong> was written by Aqsa Zam Zam Mirza Johar Baig. LexiLaw is a free legal dictionary designed to help students, professionals, and the public understand complex legal terminology. Browse the dictionary for more terms related to <strong>{term.category}</strong>.
                </p>
             </div>
 

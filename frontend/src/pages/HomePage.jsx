@@ -36,8 +36,8 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>LexiLaw – Legal Dictionary | By Aqsa Zam Zam Mirza Johar Baig</title>
-        <meta name="description" content="LexiLaw by Aqsa Mirza (CLAT AIR 42) is a comprehensive legal dictionary with plain-English definitions, examples, and A–Z browsing of hundreds of legal terms. Free forever." />
-        <meta name="keywords" content="Law Dictionary, Legal Terms, Aqsa Zam Zam Mirza Johar Baig, Aqsa Mirza, BA LLB, CLAT AIR 42, Legal Researcher" />
+        <meta name="description" content="LexiLaw by Aqsa Mirza is a comprehensive legal dictionary with plain-English definitions, examples, and A–Z browsing of hundreds of legal terms. Free forever." />
+        <meta name="keywords" content="Law Dictionary, Legal Terms, Aqsa Zam Zam Mirza Johar Baig, Aqsa Mirza, BA LLB, Legal Researcher" />
         <meta name="author" content="Aqsa Zam Zam Mirza Johar Baig" />
         <link rel="canonical" href={`${BASE_URL}/`} />
 
@@ -68,7 +68,7 @@ export default function HomePage() {
           <h1 className="hero__title">Law, Explained<br />in Plain English</h1>
           <p className="hero__subtitle">
             Browse hundreds of legal terms — clearly defined with real-world examples.
-            Bookmark your favorites. Search instantly. Created by <strong>Aqsa Zam Zam Mirza Johar Baig</strong>, CLAT AIR 42.
+            Bookmark your favorites. Search instantly. Created by <strong>Aqsa Zam Zam Mirza Johar Baig</strong>.
           </p>
 
           <div style={{
@@ -100,7 +100,7 @@ export default function HomePage() {
                 Aqsa Zam Zam Mirza Johar Baig
               </div>
               <div style={{ fontSize: '0.74rem', color: 'var(--text-secondary)' }}>
-                Creator &amp; Legal Researcher · CLAT AIR 42
+                Creator &amp; Legal Researcher
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function HomePage() {
               { icon: '🔖', title: 'Bookmark & Save', desc: 'Save terms you are studying or frequently reference. Your bookmarks are stored locally in your browser — no account needed, always private and instantly accessible.' },
               { icon: '🔡', title: 'A–Z Dictionary Browse', desc: 'Browse the full legal dictionary alphabetically. Jump to any letter — from Acquittal to Zero-Tolerance Policy — using our quick-access A–Z navigation bar.' },
               { icon: '⚖️', title: 'Covers All Areas of Law', desc: 'LexiLaw covers criminal law, civil law, constitutional law, contract law, tort law, property law, family law, evidence law, and more — giving you a comprehensive legal reference in one place.' },
-              { icon: '🎓', title: 'Built for Students', desc: 'Created by Aqsa Zam Zam Mirza Johar Baig (CLAT AIR 42), LexiLaw is designed with law students in mind. Every definition is paired with real-world examples to help you apply the concept in exams and practice.' },
+              { icon: '🎓', title: 'Built for Students', desc: 'Created by Aqsa Zam Zam Mirza Johar Baig, LexiLaw is designed with law students in mind. Every definition is paired with real-world examples to help you apply the concept in exams and practice.' },
             ].map(({ icon, title, desc }) => (
               <div key={title} style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '22px', display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <span style={{ fontSize: '1.6rem' }}>{icon}</span>
@@ -275,7 +275,7 @@ export default function HomePage() {
                   Aqsa Zam Zam Mirza Johar Baig
                 </h3>
                 <h4 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', fontWeight: 600, margin: 0 }}>
-                  Aqsa Mirza | BA LLB | CLAT AIR 42 | Legal Researcher
+                  Aqsa Mirza | BA LLB | Legal Researcher
                 </h4>
               </div>
             </div>
@@ -283,11 +283,11 @@ export default function HomePage() {
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', margin: '8px 0' }}>
               <span className="badge">Legal Scholar</span>
               <span className="badge">Web Developer</span>
-              <span className="badge">CLAT AIR 42 (2022)</span>
+              <span className="badge">Legal Researcher</span>
             </div>
 
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.95rem' }}>
-              <strong>Aqsa Zam Zam Mirza Johar Baig</strong>, formally known online as <strong>Aqsa Mirza</strong>, is a dedicated BA LLB student at Dr. Panjabrao Deshmukh College of Law, Amravati, and the visionary behind LexiLaw. Achieving an impressive <strong>CLAT 2022 AIR 42</strong>, she combines her profound academic understanding of the law with modern web development skills to make legal knowledge accessible to everyone. As a passionate <strong>Legal Researcher</strong> and technologist, Aqsa actively bridges the gap between complex jurisprudence and plain-English comprehension, providing invaluable resources for students, professionals, and the public alike. LexiLaw is her commitment to democratizing legal education — one definition at a time.
+              <strong>Aqsa Zam Zam Mirza Johar Baig</strong>, formally known online as <strong>Aqsa Mirza</strong>, is a dedicated BA LLB student at Dr. Panjabrao Deshmukh College of Law, Amravati, and the visionary behind LexiLaw. She combines her profound academic understanding of the law with modern web development skills to make legal knowledge accessible to everyone. As a passionate <strong>Legal Researcher</strong> and technologist, Aqsa actively bridges the gap between complex jurisprudence and plain-English comprehension, providing invaluable resources for students, professionals, and the public alike. LexiLaw is her commitment to democratizing legal education — one definition at a time.
             </p>
 
             <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '14px' }}>

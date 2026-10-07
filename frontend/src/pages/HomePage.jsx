@@ -71,6 +71,40 @@ export default function HomePage() {
             Bookmark your favorites. Search instantly. Created by <strong>Aqsa Zam Zam Mirza Johar Baig</strong>, CLAT AIR 42.
           </p>
 
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '12px',
+            background: 'rgba(212, 163, 89, 0.08)',
+            border: '1px solid rgba(212, 163, 89, 0.3)',
+            borderRadius: '9999px',
+            padding: '6px 18px 6px 8px',
+            margin: '0 auto 28px',
+            backdropFilter: 'blur(10px)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)'
+          }}>
+            <img
+              src="/profile.png?v=2"
+              alt="Aqsa Zam Zam Mirza Johar Baig"
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: '2px solid var(--gold-primary)',
+                flexShrink: 0
+              }}
+            />
+            <div style={{ textAlign: 'left', lineHeight: 1.3 }}>
+              <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--gold-primary)' }}>
+                Aqsa Zam Zam Mirza Johar Baig
+              </div>
+              <div style={{ fontSize: '0.74rem', color: 'var(--text-secondary)' }}>
+                Creator &amp; Legal Researcher · CLAT AIR 42
+              </div>
+            </div>
+          </div>
+
           <div className="hero__search">
             <form onSubmit={handleSearch} style={{ position: 'relative' }}>
               <div className="search-input-wrap" style={{ borderRadius: '14px', padding: '14px 20px' }}>
@@ -231,7 +265,7 @@ export default function HomePage() {
                 flexShrink: 0
               }}>
                 <img
-                  src="/profile.png"
+                  src="/profile.png?v=2"
                   alt="Aqsa Zam Zam Mirza Johar Baig"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
